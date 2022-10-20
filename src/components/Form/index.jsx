@@ -7,16 +7,20 @@ import StyledPaper from "./styles";
 
 function SelectField(props) {
 
-  const { data } = props;
+  const { data, setCharacterData } = props;
+  const { charactersList } = data;
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    const eValue = e.target.value;
+    setValue(eValue);
+    setCharacterData(eValue);
   };
 
   return (
     <StyledPaper>
-      <FormControl fullWidth>
+      {charactersList.length> 0 && (
+        <FormControl fullWidth>
         <InputLabel id="select-a-character">Select a Character</InputLabel>
         <Select
           labelId="select-a-character"
@@ -25,11 +29,13 @@ function SelectField(props) {
           label="Select a Character"
           onChange={handleChange}
         >
-          {data.charactersList.map((character) => {
+          {charactersList.map((character, index) => {
             return <MenuItem value={character.url} key={character.url}>{character.name}</MenuItem>
           })}
         </Select>
       </FormControl>
+      )}
+      
     </StyledPaper>
   );
 }

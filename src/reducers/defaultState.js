@@ -6,6 +6,7 @@ const films = {
 const defaultState = {
     charactersList: [],
     charactersListLoaded: false,
+    characterDetails: null,
     films
   };
   

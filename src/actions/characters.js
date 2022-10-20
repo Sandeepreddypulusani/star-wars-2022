@@ -1,4 +1,4 @@
-import { FETCH_CHARACTERS_LIST_PENDING, FETCH_CHARACTERS_LIST_SUCCESS } from "../_helpers/constants";
+import { FETCH_CHARACTERS_LIST_PENDING, FETCH_CHARACTERS_LIST_SUCCESS, SET_CHARACTER_DATA } from "../_helpers/constants";
 import axios from "axios";
 
 export const fetchCharactersListPending = () => {
@@ -12,6 +12,13 @@ export const fetchCharactersListPending = () => {
     return {
       type: FETCH_CHARACTERS_LIST_SUCCESS,
       payload: data
+    };
+  };
+
+  export const setCharacterData = (dataUID) => {
+    return {
+      type: SET_CHARACTER_DATA,
+      payload: dataUID
     };
   };
 

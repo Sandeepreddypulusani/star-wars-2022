@@ -1,4 +1,4 @@
-import { FETCH_CHARACTERS_LIST_PENDING, FETCH_CHARACTERS_LIST_SUCCESS } from "../_helpers/constants";
+import { FETCH_CHARACTERS_LIST_PENDING, FETCH_CHARACTERS_LIST_SUCCESS, SET_CHARACTER_DATA } from "../_helpers/constants";
 import defaultState from "./defaultState";
 
 const charactersReducer = (state = defaultState, action) => {
@@ -15,6 +15,11 @@ const charactersReducer = (state = defaultState, action) => {
           charactersList: action.payload,
           charactersListLoaded: true,
         };
+        case SET_CHARACTER_DATA:
+          return {
+            ...state,
+            characterDetails: state.charactersList.find((e) => e.url === action.payload),
+          };
       default:
         return state;
     }

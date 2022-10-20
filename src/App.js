@@ -4,8 +4,8 @@ import Component from "./components/App";
 
 const Wrapper = styled("div")({
   backgroundColor: "rgba(0, 0, 0, 0.5)",
-  width: "300px",
-  height: "300px",
+  width: "400px",
+  height: "auto",
   padding: "50px",
   position: "absolute", /*Can also be `fixed`*/
   left: 0,
