@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
 import charactersReducer from "./characters";
-// import filmsReducer from "./films";
+import reduceReducers from "reduce-reducers";
+import filmsReducer from "./films";
 
 const rootReducer = combineReducers({
-  data: charactersReducer
+  data: reduceReducers(charactersReducer,filmsReducer)
 });
 
 export default rootReducer;

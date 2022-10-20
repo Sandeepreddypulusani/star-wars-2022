@@ -4,7 +4,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { FilmsButton } from './styles';
+import { StyledButton } from './styles';
 import {useState} from "react";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -42,7 +42,7 @@ function BootstrapDialogTitle(props) {
 
 export default function CustomizedDialogs(props) {
 
-    const { children, title, content, icon } = props;
+    const { buttonColor, children, title, content, icon } = props;
 
   const [open, setOpen] = useState(false);
 
@@ -55,9 +55,9 @@ export default function CustomizedDialogs(props) {
 
   return (
     <div>
-        <FilmsButton variant="contained" startIcon={icon} onClick={handleClickOpen}>
+        <StyledButton buttoncolor={buttonColor} variant="contained" startIcon={icon} onClick={handleClickOpen}>
         {children}
-        </FilmsButton>
+        </StyledButton>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

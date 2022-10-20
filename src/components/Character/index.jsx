@@ -10,7 +10,9 @@ function CharacterDetails(props) {
     const { data: { characterDetails } } = props;
 
     if (characterDetails) {
-        const { eye_color, films, height, name, vehicles } = characterDetails
+        const { eye_color, films, height, name, vehicles } = characterDetails;
+        const imageName = name && name.toLowerCase().split(" ").join("-");
+
         return (
             <Grid container
                 justifyContent="center"
@@ -19,8 +21,8 @@ function CharacterDetails(props) {
                 spacing={3}>
                 <Grid item>
                     <Avatar
-                        alt="Remy Sharp"
-                        src="../images/characters/luke-skywalker.jpeg"
+                        alt={imageName}
+                        src={`../images/characters/${imageName}.jpeg`}
                         sx={{ width: 120, height: 120 }}
                     />
                 </Grid>
@@ -38,7 +40,7 @@ function CharacterDetails(props) {
                     <Grid container spacing={2}>
                         {films.length > 0 && (
                         <Grid item>
-                            <Films {...props} />
+                            <Films {...props} filmsURL={films}/>
                         </Grid>
                         )}
                          {vehicles.length > 0 && (

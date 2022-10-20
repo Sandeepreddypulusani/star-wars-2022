@@ -16,16 +16,16 @@ export const Body1 = styled("span")({
     fontSize:"1.1rem"
 })
 
-export const FilmsButton = styled(Button)({
-    backgroundColor: "#0363cc",
+export const StyledButton = styled(Button)(({buttoncolor}) => ({
+    backgroundColor: buttoncolor,
     color:"#fff",
-    border:"2px solid #0363cc",
+    border:`2px solid ${buttoncolor}`,
     '&:hover': {
       backgroundColor: "#fff",
-      color:"#0363cc",
+      color:buttoncolor,
       border:"2px solid #fff"
     },
-});
+}));
 
 export const VehiclesButton = styled(Button)({
     backgroundColor: "orange",

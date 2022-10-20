@@ -1,13 +1,9 @@
-const films = {
-    data: [],
-    dataLoaded: false,
-}
-
 const defaultState = {
     charactersList: [],
     charactersListLoaded: false,
     characterDetails: null,
-    films
+    filmsList: [],
+    filmsListLoaded: false
   };
   
   export default defaultState;
