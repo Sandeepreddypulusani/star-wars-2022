@@ -16,7 +16,6 @@ function Vehicles(props) {
                 <Grid container spacing={2}>
                     {!vehiclesListLoaded ? <CircularProgress /> : vehiclesList.length > 0 && vehiclesList.map((item) => {
                         const { data: { name, model, max_atmosphering_speed } } = item;
-                        console.log(item)
                         return (
                         <Grid item xs={12} key={name}>
                             <Card
