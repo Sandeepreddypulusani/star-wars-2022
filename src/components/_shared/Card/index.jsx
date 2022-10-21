@@ -11,7 +11,7 @@ function ActionAreaCard(props) {
   const imageName = header && header.toLowerCase().split(" ").join("-");
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardActionArea>
         <CardMedia
           component="img"

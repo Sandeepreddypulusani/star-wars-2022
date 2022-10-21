@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  'min-width':'400px',
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
   },
@@ -44,15 +45,13 @@ export default function CustomizedDialogs(props) {
     const { title, content, onClose, open } = props;
 
   return (
-    <div>
-       
       <BootstrapDialog
         onClose={onClose}
         aria-labelledby="customized-dialog-title"
         open={open}
         sx={{minWidth: "300px"}}
       >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={onClose}>
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={onClose} sx={{minWidth:"300px"}}>
           {title}
         </BootstrapDialogTitle>
         <DialogContent dividers>
@@ -60,6 +59,5 @@ export default function CustomizedDialogs(props) {
         </DialogContent>
 
       </BootstrapDialog>
-    </div>
   );
 }
