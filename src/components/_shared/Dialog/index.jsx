@@ -4,8 +4,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { StyledButton } from './styles';
-import {useState} from "react";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -42,28 +41,18 @@ function BootstrapDialogTitle(props) {
 
 export default function CustomizedDialogs(props) {
 
-    const { buttonColor, children, title, content, icon } = props;
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+    const { title, content, onClose, open } = props;
 
   return (
     <div>
-        <StyledButton buttoncolor={buttonColor} variant="contained" startIcon={icon} onClick={handleClickOpen}>
-        {children}
-        </StyledButton>
+       
       <BootstrapDialog
-        onClose={handleClose}
+        onClose={onClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        sx={{minWidth: "300px"}}
       >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={onClose}>
           {title}
         </BootstrapDialogTitle>
         <DialogContent dividers>

@@ -3,7 +3,11 @@ const defaultState = {
     charactersListLoaded: false,
     characterDetails: null,
     filmsList: [],
-    filmsListLoaded: false
+    openFilmsModal: false,
+    filmsListLoaded: false,
+    vehiclesList: [],
+    openVehiclesModal: false,
+    vehiclesListLoaded: false
   };
   
   export default defaultState;

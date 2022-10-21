@@ -1,4 +1,4 @@
-import { FETCH_FILMS_LIST_PENDING, FETCH_FILMS_LIST_SUCCESS } from "../_helpers/constants";
+import { FETCH_FILMS_LIST_PENDING, FETCH_FILMS_LIST_SUCCESS, TOGGLE_FILMS_MODAL } from "../_helpers/constants";
 import defaultState from "./defaultState";
 
 const filmsReducer = (state = defaultState, action) => {
@@ -14,6 +14,11 @@ const filmsReducer = (state = defaultState, action) => {
           ...state,
           filmsList: action.payload,
           filmsListLoaded: true,
+        };
+        case TOGGLE_FILMS_MODAL:
+        return {
+          ...state,
+          openFilmsModal: action.payload,
         };
       default:
         return state;

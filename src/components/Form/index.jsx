@@ -3,6 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from "react";
+import PropTypes from "prop-types";
+
 import StyledPaper from "./styles";
 
 function SelectField(props) {
@@ -29,7 +31,7 @@ function SelectField(props) {
           label="Select a Character"
           onChange={handleChange}
         >
-          {charactersList.map((character, index) => {
+          {charactersList.map((character) => {
             return <MenuItem value={character.url} key={character.url}>{character.name}</MenuItem>
           })}
         </Select>
@@ -39,5 +41,12 @@ function SelectField(props) {
     </StyledPaper>
   );
 }
+
+SelectField.prototypes = {
+  data: PropTypes.object.isRequired,
+  setCharacterData: PropTypes.func.isRequired
+}
+
+SelectField.defaultProps = {}
 
 export default SelectField;

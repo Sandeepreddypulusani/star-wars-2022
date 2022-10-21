@@ -1,39 +1,47 @@
-import MovieIcon from '@mui/icons-material/Movie';
-import Dialog from "../_shared/Dialog";
-import {useEffect} from "react"
-import Card from "../_shared/Card";
+
 import CircularProgress from '@mui/material/CircularProgress';
-import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import PropTypes from "prop-types";
+
+import Card from "../_shared/Card";
+import Dialog from "../_shared/Dialog";
 
 function Films(props) {
-const {fetchFilmsList, filmsURL, data} = props;
+    const { toggleFilmsModal, data } = props;
+    const { filmsList, filmsListLoaded } = data;
 
-const { filmsList, filmsListLoaded } = data;
-useEffect(() => {
-    fetchFilmsList(filmsURL)
-}, [fetchFilmsList, filmsURL ])
     return (
-        <Dialog 
-        content={
-            !filmsListLoaded ? <CircularProgress /> : 
-            filmsList.length > 0 && filmsList.map((item) => {
-const { data: {title, director, opening_crawl}} = item;
-            return <Grid container spacing={2} key={title}>
-                <Grid item xs={12}>
-            <Card
-{...props}
-header={title}
-caption={director}
-description={opening_crawl}
+        <Dialog
+            content={
+                <Grid container spacing={2}>
+                    {!filmsListLoaded ? <CircularProgress /> : filmsList.length > 0 && filmsList.map((item) => {
+                        const { data: { title, director, opening_crawl } } = item;
+                        return (
+                        <Grid item xs={12} key={title}>
+                            <Card
+                                {...props}
+                                header={title}
+                                caption={director}
+                                description={opening_crawl}
+                                imgLocation="films"
+                            />
+                        </Grid>
+    )})}
+                </Grid>
+            }
+            onClose={() => toggleFilmsModal(false)}
+            title="Movies List"
+            open
             />
-            <Divider />
-            </Grid></Grid>
-        })} 
-        title="Films List" icon={<MovieIcon />} buttonColor="#0363cc">
-            Films List
-        </Dialog>
 
     )
 }
+
+Films.prototypes = {
+    toggleFilmsModal: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
+}
+
+Films.defaultProps = {}
+
 export default Films;

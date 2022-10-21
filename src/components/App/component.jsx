@@ -1,9 +1,10 @@
 import Grid from '@mui/material/Grid';
-
-import SelectField from "../Form";
 import { useEffect } from "react";
 import CircularProgress from '@mui/material/CircularProgress';
-import { Header1 } from "../_shared/styles";
+import PropTypes from "prop-types";
+
+import SelectField from "../Form";
+import { Header1 } from "../_shared/Fonts";
 import CharacterDetails from "../Character";
 
 function App(props) {
@@ -18,7 +19,7 @@ function App(props) {
 
     return (
         <>
-        <Header1>Star Wars</Header1>
+        <Header1 center color="white">Star Wars</Header1>
         <Grid
         container
         justifyContent="center"
@@ -35,5 +36,12 @@ function App(props) {
        </>
     )
 }
+
+App.prototypes = {
+    fetchCharactersList: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
+}
+
+App.defaultProps = {}
 
 export default App;

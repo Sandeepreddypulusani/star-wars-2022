@@ -1,4 +1,4 @@
-import { FETCH_FILMS_LIST_PENDING, FETCH_FILMS_LIST_SUCCESS } from "../_helpers/constants";
+import { FETCH_FILMS_LIST_PENDING, FETCH_FILMS_LIST_SUCCESS, TOGGLE_FILMS_MODAL } from "../_helpers/constants";
 import axios from "axios";
 
 export const fetchFilmsListPending = () => {
@@ -7,11 +7,17 @@ export const fetchFilmsListPending = () => {
     };
   };
 
-
   export const fetchFilmsListSuccess = (data) => {
     return {
       type: FETCH_FILMS_LIST_SUCCESS,
       payload: data
+    };
+  };
+
+  export const toggleFilmsModal = (open) => {
+    return {
+      type: TOGGLE_FILMS_MODAL,
+      payload: open
     };
   };
 
